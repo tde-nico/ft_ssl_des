@@ -157,11 +157,8 @@ void	des_decrypt(u_int8_t *in, u_int8_t *out)
 	i = 32;
 	while (i > 0)
 	{
-		//printf("0 r: %u l: %u %02x%02x\n", r, l, ctx.keys[i - 2], ctx.keys[i - 1]);
 		ROUND_SP(r, l, ctx.keys[i - 2], ctx.keys[i - 1]);
-		//printf("1 r: %u l: %u\n", r, l);
 		ROUND_SP(l, r, ctx.keys[i - 4], ctx.keys[i - 3]);
-		//printf("2 r: %u l: %u\n", r, l);
 		i -= 4;
 	}
 	IP_INV(l, r);

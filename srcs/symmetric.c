@@ -74,44 +74,6 @@ int arg_parse(t_sym *sym, t_sym_mode_args *args, int argc, char **argv)
 			return (printf("Error: invalid option %s\n", argv[i]));
 	}
 
-	#if 0 // DEBUG
-	printf("in_fd: %d\n", args->in_fd);
-	printf("out_fd: %d\n", args->out_fd);
-	printf("enc: %d\n", args->enc);
-	printf("b64: %d\n", args->b64);
-	if (args->key)
-	{
-		printf("key: ");
-		for (i = 0; i < sym->algo.key_size; ++i)
-			printf("%02x", args->key[i]);
-		printf("\n");
-	}
-	else
-		printf("key: %p\n", args->key);
-	if (args->iv)
-	{
-		printf("iv: ");
-		for (i = 0; i < sym->algo.block_size; ++i)
-			printf("%02x", args->iv[i]);
-		printf("\n");
-	}
-	else
-		printf("iv: %p\n", args->iv);
-	if (args->salt)
-	{
-		printf("salt: ");
-		for (i = 0; i < sym->algo.block_size; ++i)
-			printf("%02x", args->salt[i]);
-		printf("\n");
-	}
-	else
-		printf("salt: %p\n", args->salt);
-	printf("passwd: %s\n", args->passwd);
-
-	printf("name: %s\n", sym->algo.name);
-	printf("name: %s\n", sym->mode.name);
-	#endif
-
 	return (0);
 }
 
